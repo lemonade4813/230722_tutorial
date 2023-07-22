@@ -1,11 +1,15 @@
 import React from 'react';
-import NewsPage from './NewsPage';
-import MoviePage from './MoviePage';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+import Header from './components/Header';
+import NewsPage from './pages/NewsPage';
 
 const App = () => {
   return (
-      // <MoviePage/>
-      <NewsPage/>
+    <>
+      <Header/>
+      <RouterProvider router={router}/>
+    </>
   );
 };
 
