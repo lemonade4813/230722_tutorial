@@ -4,7 +4,8 @@ import MoviePage from './MoviePage';
 
 const App = () => {
   return (
-      <MoviePage/>
+      // <MoviePage/>
+      <NewsPage/>
   );
 };
 

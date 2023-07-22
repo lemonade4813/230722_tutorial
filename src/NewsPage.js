@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 
 
 
 const NewsPage = () => {
     // 1. 
-  const [data, setData] = useState([]);
+  const [newsList, setNewsList] = useState([]);
 
-  console.log(data)
+  console.log(newsList)
 
   
-// 2
+// 2xcf
   const fetchData = async () => {
 //4
     try{
@@ -21,7 +21,7 @@ const NewsPage = () => {
       console.log(status)
       if(status === 200){
 
-        setData(data.articles)
+        setNewsList(data.articles)
       }
   
     }catch(e){
@@ -51,19 +51,30 @@ const NewsPage = () => {
 
 // 5
   return (
-    <div>
     
-      {data && data.map(article => (
-        <>
-          <h1>{article.title}</h1>
-          <p>{article.description}</p>
-        </>
-      ))}
+    <Container className={"mt-3"}>
+        <Row>
+
+        {newsList && newsList.map((item, index) => (
+            <Col className='mt-3 mb-3'>
+            <Card style={{ width: '18rem' }} key={index}>
+                <Card.Img variant="top" src={item.urlToImage} style={{height : "250px"}}/>
+                <Card.Body>
+                    <Card.Title>{item.title.slice(0,10)}</Card.Title>
+                    <Card.Text>
+                    {item.description.slice(0,80)}
+                    </Card.Text>
+                    <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+            </Card>
+            </Col>
+        ))}
+        </Row>
+    </Container>
+
+
       
-  
-
-
-  </div>
+      
 
 
 
