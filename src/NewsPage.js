@@ -5,15 +5,15 @@ import axios from 'axios';
 
 
 const NewsPage = () => {
-
+    // 1. 
   const [data, setData] = useState([]);
 
   console.log(data)
 
   
-
+// 2
   const fetchData = async () => {
-
+//4
     try{
 
       const {data, status} = await axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-06-22&sortBy=publishedAt&apiKey=a59be9aa893d41d6844304d4c23162ef')
@@ -43,13 +43,13 @@ const NewsPage = () => {
 
  
 
-
+//3
   useEffect(()=>{
 
     fetchData();
   },[])
 
-
+// 5
   return (
     <div>
     
